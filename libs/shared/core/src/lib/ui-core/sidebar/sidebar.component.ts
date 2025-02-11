@@ -50,6 +50,13 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           </a>
         </li>
 
+        <li routerLinkActive="active">
+          <a routerLink="luggage">
+            <i class="icon icon-boarding"></i>
+            <p>Luggage</p>
+          </a>
+        </li>
+
       </ul>
 
     </div>

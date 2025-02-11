@@ -61,6 +61,7 @@ export default [
                 'domain:boarding',
                 'domain:booking',
                 'domain:checkin',
+                'domain:luggage',
                 'domain:shared',
               ],
             },

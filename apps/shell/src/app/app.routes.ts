@@ -25,6 +25,10 @@ export const APP_ROUTES: Routes = [
     loadChildren: () => import('@flight-demo/boarding')
   },
   {
+    path: 'luggage',
+    loadComponent: () => import('@flight-demo/luggage/feature-checkin')
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }
