@@ -1,7 +1,7 @@
-import { Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
+import { Component, effect, inject, input } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { Store } from '@ngrx/store';
 import { routerFeature } from '@flight-demo/shared-state';
+import { Store } from '@ngrx/store';
 import { initialFlight } from '../../logic-flight';
 
 
@@ -12,10 +12,10 @@ import { initialFlight } from '../../logic-flight';
   ],
   templateUrl: './flight-edit.component.html'
 })
-export class FlightEditComponent implements OnChanges {
+export class FlightEditComponent {
   private store = inject(Store);
 
-  @Input() flight = initialFlight;
+  readonly flight = input(initialFlight);
 
   protected editForm = inject(NonNullableFormBuilder).group({
     id: [0],
@@ -29,12 +29,10 @@ export class FlightEditComponent implements OnChanges {
     this.store.select(routerFeature.selectRouteParams).subscribe(
       params => console.log(params)
     );
-  }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['flight'].previousValue !== changes['flight'].currentValue) {
-      this.editForm.patchValue(this.flight);
-    }
+    effect(() => this.editForm.patchValue(
+      this.flight()
+    ));
   }
 
   protected save(): void {
