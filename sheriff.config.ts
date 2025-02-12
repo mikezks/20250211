@@ -108,3 +108,19 @@ export const config: SheriffConfig = {
  *
  * No issues found. Well done!
  */
+
+/**
+ * npx nx lint shell
+ *
+ * > nx run shell:lint
+ * Linting "shell"...
+ * ✔ All files pass linting
+ */
+
+/**
+ * npx nx lint booking
+ *
+ * > nx run booking:lint
+ * Linting "booking"...
+ * ✔ All files pass linting
+ */
