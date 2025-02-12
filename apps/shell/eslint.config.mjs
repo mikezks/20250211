@@ -1,3 +1,4 @@
+// eslint-disable-next-line @softarc/sheriff/dependency-rule
 import nx from '@nx/eslint-plugin';
 import baseConfig from '../../eslint.config.mjs';
 
