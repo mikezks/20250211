@@ -1,0 +1,26 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "types": []
+  },
+  "files": [
+    "src/main.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts",
+    "..\\..\\libs\\boarding\\src\\index.ts",
+    "..\\..\\libs\\booking\\src\\index.ts",
+    "..\\..\\libs\\checkin\\src\\index.ts",
+    "..\\..\\libs\\luggage\\feature-checkin\\src\\index.ts",
+    "..\\..\\libs\\luggage\\logic\\src\\index.ts",
+    "..\\..\\libs\\shared\\core\\src\\index.ts",
+    "..\\..\\libs\\shared\\logger\\src\\index.ts",
+    "..\\..\\libs\\shared\\state\\src\\index.ts"
+  ],
+  "exclude": [
+    "jest.config.ts",
+    "src/**/*.test.ts",
+    "src/**/*.spec.ts"
+  ]
+}
