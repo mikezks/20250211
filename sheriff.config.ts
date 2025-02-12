@@ -98,4 +98,13 @@ export const config: SheriffConfig = {
  * ├── libs\shared\core\src (domain:shared, type:public)
  * ├── libs\shared\logger\src (domain:shared, type:public)
  * └── libs\shared\state\src (domain:shared, type:public)
+ *
+ */
+
+/**
+ * npx sheriff verify .\apps\shell\src\main.ts
+ *
+ * Verification Report
+ *
+ * No issues found. Well done!
  */
