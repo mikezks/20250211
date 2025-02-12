@@ -1,8 +1,8 @@
 export default {
   displayName: 'shared-core',
-  preset: '../../jest.preset.js',
+  preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/libs/shared-core',
+  coverageDirectory: '../../../coverage/libs/shared-core',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

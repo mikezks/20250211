@@ -5,7 +5,7 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { APP_ROUTES } from './app.routes';
-import { provideRouterFeature } from '@flight-demo/shared-state';
+import { provideRouterFeature } from '@flight-demo/shared/state';
 
 export const appConfig: ApplicationConfig = {
   providers: [

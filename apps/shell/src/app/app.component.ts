@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderbarComponent, SidebarComponent } from '@flight-demo/shared-core';
+import { HeaderbarComponent, SidebarComponent } from '@flight-demo/shared/core';
 
 
 @Component({

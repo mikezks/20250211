@@ -1,8 +1,8 @@
 export default {
   displayName: 'shared-logger',
-  preset: '../../jest.preset.js',
+  preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/libs/shared-logger',
+  coverageDirectory: '../../../coverage/libs/shared-logger',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

@@ -1,8 +1,8 @@
 export default {
-  displayName: 'shared-state',
+  displayName: 'checkin',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../coverage/libs/shared-state',
+  coverageDirectory: '../../../coverage/libs/checkin',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
