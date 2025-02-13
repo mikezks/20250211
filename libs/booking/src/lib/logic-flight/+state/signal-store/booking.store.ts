@@ -1,24 +1,17 @@
-import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
-import { Flight } from '../../model/flight';
 import { computed, inject } from '@angular/core';
-import { FlightFilter } from '../../model/flight-filter';
+import { tapResponse } from '@ngrx/operators';
+import { patchState, signalStore, withComputed, withHooks, withMethods, withState } from '@ngrx/signals';
+import { rxMethod } from '@ngrx/signals/rxjs-interop';
+import { pipe, switchMap } from 'rxjs';
 import { FlightService } from '../../data-access/flight.service';
+import { Flight } from '../../model/flight';
+import { FlightFilter } from '../../model/flight-filter';
+import { initialBookingState } from './booking.model';
 
 export const BookingStore = signalStore(
   { providedIn: 'root' },
   // State
-  withState({
-    filter: {
-      from: 'Hamburg',
-      to: 'Graz',
-      urgent: false
-    },
-    basket: {
-      3: true,
-      5: true,
-    } as Record<number, boolean>,
-    flights: [] as Flight[]
-  }),
+  withState(initialBookingState),
   // Derived State
   withComputed(store => ({
     delayedFlights: computed(
@@ -42,14 +35,17 @@ export const BookingStore = signalStore(
     store,
     flightService = inject(FlightService)
   ) => ({
-    loadFlights: () => {
-      flightService.find(
-        store.filter.from(),
-        store.filter.to(),
-        store.filter.urgent()
-      ).subscribe(
-        flights => store.setFlights(flights)
+    rxLoadFlights: rxMethod<FlightFilter>(pipe(
+      switchMap(filter => flightService.find(
+        filter.from, filter.to, filter.urgent
+      )),
+      tapResponse(
+        flights => store.setFlights(flights),
+        err => console.error(err)
       )
-    }
+    ))
   })),
+  withHooks(store => ({
+    onInit: () => store.rxLoadFlights(store.filter)
+  }))
 );

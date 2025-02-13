@@ -28,11 +28,11 @@ export class FlightSearchComponent {
   protected search(filter: FlightFilter): void {
     this.store.setFilter(filter);
 
-    if (!this.filter.from() || !this.filter.to()) {
+    /* if (!this.filter.from() || !this.filter.to()) {
       return;
     }
 
-    this.store.loadFlights();
+    this.store.loadFlights(); */
   }
 
   protected delay(flight: Flight): void {
