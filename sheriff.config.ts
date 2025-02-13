@@ -35,7 +35,7 @@ export const config: SheriffConfig = {
     libs: {
       domain: {
         '<domain>': {
-          'src': ['domain:<domain>', 'type:public'],
+          'src': ['domain:<domain>', 'type:lib'],
           'src/lib/api-<target>': ['domain:<domain>-api-<target>', 'type:api'],
           'src/lib/<type>-<a>-<b>': ['domain:<domain>', 'type:<type>'],
           'src/lib/<type>-<a>': ['domain:<domain>', 'type:<type>'],
@@ -43,7 +43,7 @@ export const config: SheriffConfig = {
       },
       shared: {
         '<shared-name>': {
-          'src': ['domain:shared', 'type:public'],
+          'src': ['domain:shared', 'type:lib'],
           'src/lib/<type>-<a>-<b>': ['domain:shared', 'type:<type>'],
           'src/lib/<type>-<a>': ['domain:shared', 'type:<type>'],
         }
@@ -57,8 +57,8 @@ export const config: SheriffConfig = {
     // 'noTag': ['noTag', 'root'],
     'domain:*': [sameTag, domainApiTag, 'domain:shared'],
     'domain:shell': ['domain:*'],
-    'type:*': ['type:public'],
-    'type:public': ['type:api', 'type:route', 'type:feature', 'type:ui', 'type:logic', 'type:util'],
+    'type:*': ['type:lib'],
+    'type:lib': ['type:api', 'type:route', 'type:feature', 'type:ui', 'type:logic', 'type:util'],
     'type:route': ['type:feature', 'type:logic'],
     'type:api': ['type:ui', 'type:logic', 'type:util'],
     'type:feature': ['type:api', 'type:ui', 'type:logic', 'type:util'],
@@ -91,13 +91,13 @@ export const config: SheriffConfig = {
  * ├── libs\shared\core\src\lib\ui-core (domain:shared, type:ui)
  * ├── libs\shared\logger\src\lib\logic-cd-visualizer (domain:shared, type:logic)
  * ├── libs\shared\state\src\lib\logic-router-feature (domain:shared, type:logic)
- * ├── libs\domain\boarding\src (domain:boarding, type:public)
- * ├── libs\domain\booking\src (domain:booking, type:public)
- * ├── libs\domain\checkin\src (domain:checkin, type:public)
+ * ├── libs\domain\boarding\src (domain:boarding, type:lib)
+ * ├── libs\domain\booking\src (domain:booking, type:lib)
+ * ├── libs\domain\checkin\src (domain:checkin, type:lib)
  * ├── libs\domain\checkin\src\lib\util-validation (domain:checkin, type:util)
- * ├── libs\shared\core\src (domain:shared, type:public)
- * ├── libs\shared\logger\src (domain:shared, type:public)
- * └── libs\shared\state\src (domain:shared, type:public)
+ * ├── libs\shared\core\src (domain:shared, type:lib)
+ * ├── libs\shared\logger\src (domain:shared, type:lib)
+ * └── libs\shared\state\src (domain:shared, type:lib)
  *
  */
 
